@@ -1,0 +1,451 @@
+/* --- Base Styles & Typography --- */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap');
+
+:root {
+    --primary-color: #5D5D81; /* A sophisticated blue-gray */
+    --secondary-color: #A3B18A; /* A soft, natural green */
+    --accent-color: #F8B400;   /* A warm, inviting accent */
+    --dark-text: #333333;
+    --light-text: #f0f0f0;
+    --border-color: #e0e0e0;
+    --background-light: #f8f8f8;
+    --background-white: #ffffff;
+    --shadow-light: rgba(0, 0, 0, 0.08);
+    --shadow-medium: rgba(0, 0, 0, 0.12);
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: var(--dark-text);
+    background-color: var(--background-light);
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 25px; /* Consistent padding on sides */
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif; /* Serif font for headings */
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 3.8em;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 3em;
+    font-weight: 700;
+    margin-bottom: 50px;
+}
+
+h3 {
+    font-size: 1.8em;
+    font-weight: 600;
+}
+
+p {
+    font-size: 1.1em;
+    line-height: 1.7;
+}
+
+.section-description {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px;
+    color: #666;
+}
+
+/* --- Buttons --- */
+.btn {
+    display: inline-block;
+    padding: 14px 30px;
+    border-radius: 50px; /* Pill shape */
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.05em;
+    transition: all 0.3s ease;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    box-shadow: 0 5px 15px rgba(93, 93, 129, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: darken(var(--primary-color), 10%); /* This won't work in pure CSS, use a slightly darker color */
+    background-color: #4C4C6B; /* Example darker shade */
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(93, 93, 129, 0.4);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: var(--light-text);
+    box-shadow: 0 3px 10px rgba(163, 177, 138, 0.3);
+}
+
+.btn-secondary:hover {
+    background-color: darken(var(--secondary-color), 10%); /* Example darker shade */
+    background-color: #8D9B72;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(163, 177, 138, 0.4);
+}
+
+/* --- Navbar --- */
+.navbar {
+    background-color: var(--background-white);
+    padding: 15px 0;
+    box-shadow: 0 2px 10px var(--shadow-light);
+    position: sticky; /* Sticky navigation */
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-decoration: none;
+    padding: 5px 0;
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: var(--dark-text);
+    font-weight: 500;
+    font-size: 1.05em;
+    padding: 5px 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: block;
+    margin-top: 5px;
+    right: 0;
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: var(--primary-color);
+}
+
+.nav-links li a:hover::after {
+    width: 100%;
+    left: 0;
+    background: var(--primary-color);
+}
+
+.menu-toggle {
+    display: none; /* Hidden by default on desktop */
+    flex-direction: column;
+    cursor: pointer;
+    gap: 6px;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--dark-text);
+    transition: all 0.3s ease;
+}
+/* --- Hero Section --- */
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/hero-bg.jpg') no-repeat center center/cover;
+    color: var(--light-text);
+    text-align: center;
+    padding: 120px 20px; /* Ample padding */
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero-section h1 {
+    color: var(--light-text); /* Override for hero h1 */
+    margin-bottom: 20px;
+    font-size: 4.5em; /* Larger hero title */
+}
+
+.hero-section p {
+    font-size: 1.4em;
+    margin-bottom: 40px;
+    opacity: 0.9;
+    color: var(--light-text); /* Override for hero p */
+}
+
+/* --- Products Section --- */
+.products-section {
+    padding: 80px 0;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.product-card {
+    background-color: var(--background-white);
+    border-radius: 10px;
+    box-shadow: 0 5px 20px var(--shadow-light);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px var(--shadow-medium);
+}
+
+.product-card img {
+    width: 100%;
+    height: 250px; /* Consistent image height */
+    object-fit: cover;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.product-card .card-content {
+    padding: 25px;
+    flex-grow: 1; /* Allows content to fill space */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-card h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-align: left; /* Align product title left */
+    font-size: 1.8em;
+}
+
+.product-card p {
+    font-size: 0.95em;
+    color: #666;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Allows description to take available space */
+    text-align: left; /* Align product description left */
+}
+
+.product-card .price {
+    font-size: 1.7em;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+    display: block;
+    text-align: left; /* Align price left */
+}
+
+.product-card .btn-secondary {
+    width: 100%; /* Make button full width */
+    font-size: 1em;
+}
+
+/* --- Contact Us Section --- */
+.inquiry-section {
+    padding: 80px 0;
+    background-color: var(--background-white);
+    border-top: 1px solid var(--border-color);
+}
+
+.inquiry-section h2 {
+    margin-bottom: 40px;
+}
+
+.inquiry-section .section-description {
+    margin-bottom: 60px;
+}
+
+.inquiry-section form {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: var(--background-light);
+    border-radius: 10px;
+    box-shadow: 0 5px 20px var(--shadow-light);
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: var(--dark-text);
+    font-size: 1.05em;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 1em;
+    color: var(--dark-text);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(93, 93, 129, 0.2);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.response-message {
+    margin-top: 30px;
+    padding: 18px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.1em;
+    display: none; /* Hidden by default, shown by JS */
+}
+
+.response-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    display: block;
+}
+
+.response-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    display: block;
+}
+/* --- Footer --- */
+.footer {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    padding: 40px 0;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+.footer-links a {
+    color: var(--light-text);
+    text-decoration: none;
+    margin: 0 15px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--accent-color);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 992px) {
+    h1 { font-size: 3em; }
+    h2 { font-size: 2.5em; }
+    .hero-section { padding: 90px 20px; min-height: 400px; }
+    .hero-section h1 { font-size: 3.5em; }
+    .hero-section p { font-size: 1.2em; }
+    .nav-links { gap: 20px; }
+}
+
+@media (max-width: 768px) {
+    .container { padding: 0 15px; }
+    h1 { font-size: 2.5em; }
+    h2 { font-size: 2em; }
+    h3 { font-size: 1.5em; }
+
+    .nav-links {
+        display: none; /* Hide navigation links */
+        flex-direction: column;
+        width: 100%;
+        background-color: var(--background-white);
+        position: absolute;
+        top: 60px; /* Below navbar */
+        left: 0;
+        box-shadow: 0 10px 15px var(--shadow-light);
+        padding: 20px 0;
+    }
+    .nav-links.active {
+        display: flex; /* Show when active */
+    }
+    .nav-links li {
+        text-align: center;
+        margin: 10px 0;
+    }
+    .nav-links li a::after { display: none; } /* Remove underline effect on mobile */
+
+    .menu-toggle {
+        display: flex; /* Show hamburger icon */
+    }
+    .menu-toggle.active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+    .menu-toggle.active span:nth-child(2) { opacity: 0; }
+    .menu-toggle.active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+    .hero-section { padding: 70px 15px; min-height: 350px; }
+    .hero-section h1 { font-size: 2.8em; }
+    .hero-section p { font-size: 1.1em; }
+
+    .product-grid {
+        grid-template-columns: 1fr; /* Single column on mobile */
+    }
+
+    .product-card img { height: 200px; }
+
+    .inquiry-section form {
+        padding: 25px;
+    }
+
+    .btn { padding: 12px 25px; font-size: 1em; }
+}
